@@ -62,20 +62,16 @@ then
 fi
 
 
- #Get winners and opponents ids from teams table
+ #Insert games values
 
 if [[ $YEAR != year ]]
 then  
 
-  #Asing values to table.
+ 
 
 INSERT_GAMES=$($PSQL "INSERT INTO games(year, round, winner_id, opponent_id, winner_goals, opponent_goals) VALUES( $YEAR, '$ROUND', $WINNER_ID, $OPPONENT_ID, $WGOALS , $OGOALS)")
 
-  if [[ $INSERT_GAMES == "INSERT 0 1" ]]
-  then
-    echo "Inserted into games $WINNER vs $OPPONENT in $YEAR $ROUND"
 
-  fi
 fi
 
 done
